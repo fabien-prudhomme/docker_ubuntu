@@ -39,18 +39,18 @@ sudo apt-get -y update
 sudo apt-get -y install docker-ce docker-ce-cli containerd.io
 
 echo "Ajout du groupe"
-sudo groupadd -f docker
+#sudo groupadd -f docker
 
 echo "Changement de droit socket"
-sudo chown root:docker /var/run/docker.sock
+#sudo chown root:docker /var/run/docker.sock
 
 echo "Ajout de l'utilisateur $(whoami) au groupe docker"
-sudo adduser $(whoami) docker
+#sudo adduser $(whoami) docker
 
 echo "restart service"
-sudo systemctl restart docker
+#sudo systemctl restart docker
 
-docker --version
+#docker --version
 
 if [ "${COMPOSE_INSTALL}" == 1 ]; then
     sudo curl -L "https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
