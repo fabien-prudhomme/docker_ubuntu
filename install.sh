@@ -2,7 +2,7 @@
 
 set -e
 
-readonly COMPOSE_INSTALL=0
+readonly COMPOSE_INSTALL=1
 readonly COMPOSE_VERSION='1.26.2'
 
 #uninstall old version
@@ -45,7 +45,7 @@ echo "Changement de droit socket"
 sudo chown root:docker /var/run/docker.sock
 
 echo "Ajout de l'utilisateur $(whoami) au groupe docker"
-sudo usermod -a -G docker "$(whoami)"
+sudo adduser $(whoami) docker
 
 echo "restart service"
 sudo systemctl restart docker
